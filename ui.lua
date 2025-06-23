@@ -3622,7 +3622,7 @@ function library:ChangeWatermarkPosition(x, y)
     self.watermark_y = y and y:lower() or self.watermark_y
 
     if self.watermark then
-        self.watermark.Position = newUDim2(self.watermark_x == "left" and 0 or 1, self.watermark_x == "left" and 16 or -(self.watermark.AbsoluteSize.X + 16), self.watermark_y == "top" and 0 or 1, self.watermark_y == "top" and 16 or -36)
+        self.watermark.Position = newUDim2(self.watermark_x == "left" and 0 or self.watermark_x == "right" and 1 or 0.5, self.watermark_x == "left" and 16 or self.watermark_x == "right" and -(self.watermark.AbsoluteSize.X + 16) or -(self.watermark.AbsoluteSize.X / 2), self.watermark_y == "top" and 0 or 1, self.watermark_y == "top" and 16 or -36)
     end
 end
 
